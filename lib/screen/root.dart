@@ -20,31 +20,37 @@ class _RootState extends State<Root> {
     ];
     return Scaffold(
       appBar: getAppBar(),
-      body: getBody(),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-          elevation: 5,
-          shadowColor: Colors.black.withOpacity(0.5),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: List.generate(bottomItems.length, (index) {
-                return IconButton(
-                    onPressed: () {
-                      setState(() {
-                        pageIndex = index;
-                      });
-                    },
-                    icon: Icon(bottomItems[index]));
-              }),
+      body: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          getBody(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              elevation: 5,
+              shadowColor: Colors.black.withOpacity(0.5),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 32, vertical: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(bottomItems.length, (index) {
+                    return IconButton(
+                        onPressed: () {
+                          setState(() {
+                            pageIndex = index;
+                          });
+                        },
+                        icon: Icon(bottomItems[index]));
+                  }),
+                ),
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
