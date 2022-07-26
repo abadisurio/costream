@@ -114,6 +114,8 @@ class MyApp extends StatelessWidget {
             return CupertinoPageRoute(
                 builder: (_) => const ChipinDetail(), settings: settings);
         }
+        return CupertinoPageRoute(
+            builder: (_) => const Root(), settings: settings);
       },
       home: const Root(),
     );

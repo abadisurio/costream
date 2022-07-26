@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 200,
-            childAspectRatio: 0.75,
+            childAspectRatio: 0.7,
             crossAxisSpacing: 12,
             mainAxisSpacing: 12),
         itemCount: myProducts.length,
@@ -28,9 +28,7 @@ class _HomeState extends State<Home> {
               style: ButtonStyle(
                 padding: MaterialStateProperty.all(const EdgeInsets.all(24)),
               ),
-              onPressed: () {
-                Navigator.pushNamed(context, 'chipin_detail');
-              },
+              onPressed: () => Navigator.pushNamed(context, 'chipin_detail'),
               child: SizedBox(
                 width: double.infinity,
                 child: Column(
@@ -55,7 +53,25 @@ class _HomeState extends State<Home> {
                     const Spacer(),
                     Text(
                       "Si Paling Stranger Things",
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Text.rich(
+                      TextSpan(
+                        style: Theme.of(context).textTheme.caption,
+                        children: [
+                          TextSpan(
+                            text: "Rp37.000",
+                            style: Theme.of(context).textTheme.headline6,
+                          ),
+                          TextSpan(
+                            text: "/bulan",
+                            style: Theme.of(context).textTheme.caption,
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(
                       height: 8,
@@ -64,31 +80,17 @@ class _HomeState extends State<Home> {
                       'Netflix 4K',
                       style: Theme.of(context).textTheme.caption,
                     ),
-                    // Text.rich(
-                    //   TextSpan(
-                    //     style: Theme.of(context).textTheme.caption,
-                    //     children: [
-                    //       WidgetSpan(
-                    //           child: Icon(
-                    //         Icons.supervised_user_circle,
-                    //         color: Colors.grey,
-                    //         size: 17,
-                    //       )),
-                    //       TextSpan(text: ' Netflix 4K'),
-                    //     ],
-                    //   ),
-                    // ),
                     Text.rich(
                       TextSpan(
                         style: Theme.of(context).textTheme.caption,
-                        children: [
+                        children: const [
                           WidgetSpan(
                               child: Icon(
                             Icons.star,
                             color: Colors.grey,
                             size: 17,
                           )),
-                          TextSpan(text: ' 3.8 | Jeje'),
+                          TextSpan(text: ' 3.8 | 10 pengguna'),
                         ],
                       ),
                     ),
